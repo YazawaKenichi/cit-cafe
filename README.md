@@ -29,7 +29,9 @@ pip install requests
 pip install opencv-python
 ```
 
-<h6>他に予めインストールが必要なものがあったら教えてください...</h6>
+Windows だと OpenCV まわりでもうちょっと何か必要かも
+
+他に予めインストールが必要なものがあったら教えてください...
 
 ## Instration
 ```
@@ -37,10 +39,15 @@ git clone htpps://github.com/yazawakenichi/cit-cafe
 ```
 
 ## Usuage
-以下で実行可能。
+### Ubuntu
 ```
 ./cit-cafe
 ```
+### Windows
+```
+python cit-cafe
+```
+
 ### 使用可能なオプション
 |オプション|説明
 |---|---
