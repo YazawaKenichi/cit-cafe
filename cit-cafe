@@ -115,14 +115,16 @@ def get_placename(args):
 
 # 引数を解析する
 def get_args(ui = True):
-    parser = OptionParser()
+    usage = "Usage: %prog [td | sd1 | sd2] [-s SCALINGSIZE]"
+    parser = OptionParser(usage = usage)
 
     # -s オプションで表示画像のサイズを指定できるようにする
     parser.add_option(
             "-s", "--scaling",
             default = "0.4",
             type = "float",
-            dest = "scaling"
+            dest = "scalingsize",
+            help = "表示画像のサイズを入力\r\nデフォルトで 0.4"
             )
 
     if ui:
@@ -131,12 +133,12 @@ def get_args(ui = True):
     return parser.parse_args()
 
 if __name__ == '__main__':
+    # コマンドライン引数を解析する
+    optiondict, args = get_args()
     address = ADDRESS
     soup = get_soup(address)
     image_urls = get_image_urls(soup, ANCHOR_CLASS)
-    # コマンドライン引数を解析する
-    optiondict, args = get_args()
-    scaling = optiondict.scaling
+    scaling = optiondict.scalingsize
     # 場所の名前を返す
     placename = get_placename(args)
     place_index = place2index(placename)
