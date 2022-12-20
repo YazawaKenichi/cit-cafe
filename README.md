@@ -62,6 +62,8 @@ python cit-cafe
 ./cit-cafe sd1 -s 0.8
 ```
 
+### 閉じ方
+ウィンドウをアクティブ化したうえで、何かしらのキーを入力することで画像を閉じることができる。
 
 ## Reference
 - [How to open an image from an url with opencv using requests from python - stack overflow](https://stackoverflow.com/questions/57539233/how-to-open-an-image-from-an-url-with-opencv-using-requests-from-python)
