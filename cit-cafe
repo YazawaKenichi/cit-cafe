@@ -24,6 +24,10 @@ ARTICLE = 'dining/'
 ADDRESS = DOMAIN + ARTICLE
 ANCHOR_CLASS = "c-table__image-link"
 
+TSUDA = "td"
+NARA1 = "sd1"
+NARA2 = "sd2"
+
 # アドレスの BeautifulSoup を返す
 def get_soup(address, ui = True):
     try:
@@ -68,11 +72,11 @@ def get_image_urls(soup, anchor_class, ui = True):
 # 食堂の場所を指定するとインデックスを返す
 def place2index(string):
     res = -1
-    if string == "td":
+    if string == TSUDA:
         res = 0
-    if string == "sd1":
+    if string == NARA1:
         res = 1
-    if string == "sd2":
+    if string == NARA2:
         res = 2
     # もし res が -1 のままで書き換わっていなかったら
     if res == -1:
@@ -89,6 +93,8 @@ def show_image(url : str, title : str, scaling = 0.4, ui = True):
             image = cv2.imdecode(image, cv2.IMREAD_COLOR)
             rescale_size = scaling
             image = cv2.resize(image, dsize = None, fx = rescale_size, fy = rescale_size)
+            if ui:
+                print("[show] " + url)
             cv2.imshow(title, image)
     except (urllib.error.URLError, urllib.error.HTTPError) as e:
         if ui:
@@ -99,15 +105,16 @@ def show_image(url : str, title : str, scaling = 0.4, ui = True):
 
 # 引数の中に td sd1 sd2 がある時対応するインデックスを返す
 def get_placename(args):
+    global TSUDA, NARA1, NARA2
     res = "None"
-    if "td" in args:
-        res = "td"
-    if "sd1" in args:
-        res = "sd1"
-    if "sd2" in args:
-        res = "sd2"
+    if TSUDA in args:
+        res = TSUDA
+    if NARA1 in args:
+        res = NARA1
+    if NARA2 in args:
+        res = NARA2
     if len(args) == 0:
-        res = "td"
+        res = TSUDA
     if res == "None":
         print("[error] 存在しない引数", file = sys.stderr)
         sys.exit(1)
@@ -115,7 +122,8 @@ def get_placename(args):
 
 # 引数を解析する
 def get_args(ui = True):
-    usage = "Usage: %prog [td | sd1 | sd2] [-s SCALINGSIZE]"
+    global TSUDA, NARA1, NARA2
+    usage = "Usage: %prog [ " + TSUDA + " | " + NARA1 + " | " + NARA2 + "] [-s SCALINGSIZE]"
     parser = OptionParser(usage = usage)
 
     # -s オプションで表示画像のサイズを指定できるようにする
