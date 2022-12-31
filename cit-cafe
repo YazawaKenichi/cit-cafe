@@ -146,8 +146,11 @@ if __name__ == '__main__':
     address = ADDRESS
     soup = get_soup(address)
     image_urls = get_image_urls(soup, ANCHOR_CLASS)
+    if len(image_urls) == 0:
+        print("The school cafeteria is not open this week.")
+        sys.exit(0)
     scaling = optiondict.scalingsize
-    # 場所の名前を返す
+   # 場所の名前を返す
     placename = get_placename(args)
     place_index = place2index(placename)
     url = image_urls[place_index]
