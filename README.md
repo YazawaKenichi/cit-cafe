@@ -29,7 +29,9 @@ pip install requests
 pip install opencv-python
 ```
 
-<h6>他に予めインストールが必要なものがあったら教えてください...</h6>
+Windows だと OpenCV まわりでもうちょっと何か必要かも
+
+他に予めインストールが必要なものがあったら教えてください...
 
 ## Instration
 ```
@@ -37,24 +39,31 @@ git clone htpps://github.com/yazawakenichi/cit-cafe
 ```
 
 ## Usuage
-以下で実行可能。
+### Ubuntu
 ```
 ./cit-cafe
 ```
+### Windows
+```
+python cit-cafe
+```
+
 ### 使用可能なオプション
 |オプション|説明
 |---|---
-|なし|津田沼の学食の画像を表示
-|td|津田沼の学食の情報を表示
-|sd1|新習志野の学食 1F の献立表を表示
-|sd2|新習志野の学食 2F の献立表を表示
+|なし|津田沼の学食の献立画像を表示
+|td|津田沼の学食の献立画像を表示
+|sd1|新習志野の学食 1F の献立画像を表示
+|sd2|新習志野の学食 2F の献立画像を表示
 |-s *size*|画像の大きさを *size* 倍にする<br>デフォルトで 0.4
 
-例えば、以下のようにすることで、新習志野キャンパスの学食の献立表の画像を 0.8 倍にして表示するようになる。
+例えば、以下のようにすることで、新習志野キャンパス 1F の学食の献立表の画像を 0.8 倍にして表示する。
 ```
 ./cit-cafe sd1 -s 0.8
 ```
 
+### 閉じ方
+ウィンドウをアクティブ化したうえで、何かしらのキーを入力することで画像を閉じることができる。
 
 ## Reference
 - [How to open an image from an url with opencv using requests from python - stack overflow](https://stackoverflow.com/questions/57539233/how-to-open-an-image-from-an-url-with-opencv-using-requests-from-python)
