@@ -29,10 +29,6 @@ pip install requests
 pip install opencv-python
 ```
 
-Windows だと OpenCV まわりでもうちょっと何か必要かも
-
-他に予めインストールが必要なものがあったら教えてください...
-
 ## Instration
 ```
 git clone htpps://github.com/yazawakenichi/cit-cafe
@@ -64,6 +60,15 @@ python cit-cafe
 
 ### 閉じ方
 ウィンドウをアクティブ化したうえで、何かしらのキーを入力することで画像を閉じることができる。
+
+### 今週の献立表が無いとき
+学食が一週間開かない時、実行すると以下のような出力をしてプログラムを終了する。
+
+以下の出力がなされた場合は、「今週は献立表が無い」ことを意味している。
+
+```
+The school cafeteria is not open this week.
+```
 
 ## Reference
 - [How to open an image from an url with opencv using requests from python - stack overflow](https://stackoverflow.com/questions/57539233/how-to-open-an-image-from-an-url-with-opencv-using-requests-from-python)
