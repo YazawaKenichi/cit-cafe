@@ -29,6 +29,11 @@ pip install requests
 pip install opencv-python
 ```
 
+- [ ] chardet のインストール
+```
+pip install chardet
+```
+
 ## Instration
 ```
 git clone htpps://github.com/yazawakenichi/cit-cafe
